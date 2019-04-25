@@ -1,13 +1,19 @@
 package com.lambdaschool.initial;
 
-public class MyApplication
+public class MyApplication implements Processor
 {
-    private Athlete athlete = new Athlete();
+    //construct injection
+    private AthleteService athlete;
+
+    public MyApplication(AthleteService athlete)
+    {
+        this.athlete = athlete;
+    }
 
     public void create(String sport)
     {
         System.out.println("************");
-        athlete.display(sport);
+        athlete.create(sport);
         System.out.println("************\n");
     }
 }

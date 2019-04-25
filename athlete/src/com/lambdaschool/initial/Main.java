@@ -5,9 +5,23 @@ public class Main
 
     public static void main(String[] args)
     {
-        MyApplication myAthlete = new MyApplication();
-        myAthlete.create("Track");
-        myAthlete.create("Hockey");
-        myAthlete.create("Rugby");
+        AthleteServiceInjector injector;
+        Processor app;
+
+        injector = new TrackCreationInjector();
+        app = injector.getProcess();
+        app.create("Track");
+
+        injector = new HockeyCreationInjector();
+        app = injector.getProcess();
+        app.create("Hockey");
+
+        injector = new RugbyCreationInjector();
+        app = injector.getProcess();
+        app.create("Rugby");
+
+        injector = new BaseballCreationInjector();
+        app = injector.getProcess();
+        app.create("Baseball");
     }
 }
